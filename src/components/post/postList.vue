@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import List from "../list";
-import BreadCrumb from "../breadCrumb";
+import List from "../common/list";
+import BreadCrumb from "../common/breadCrumb";
 
 export default {
   name: "PostList",
@@ -62,4 +62,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.search-row {
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 </style>

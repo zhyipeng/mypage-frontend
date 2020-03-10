@@ -27,8 +27,4 @@ export default {
 .item {
   padding: 18px 0;
 }
-.search-row {
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
 </style>
