@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/login.vue'
 import Admin from './views/admin.vue'
 import Overview from './views/overview.vue'
+import PostList from './components/post/postList.vue'
 
 
 Vue.use(Router)
@@ -13,7 +14,8 @@ const router = new Router({
             component: Admin,
             redirect: '/admin/overview',
             children: [
-                { path: '/admin/overview', component: Overview }
+                { path: '/admin/overview', component: Overview },
+                { path: '/admin/posts', component: PostList },
             ]
         },
         { path: '/admin/login', component: Login },

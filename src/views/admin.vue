@@ -16,6 +16,7 @@
           active-text-color="#ffd04b"
           :collapse="isCollapse"
           :collapse-transition="false"
+          :default-active="currentPath"
           router
         >
           <div class="toggle-btn" @click="toggleCollapse">|||</div>
@@ -66,6 +67,9 @@ export default {
      toggleCollapse() {
          this.isCollapse = !this.isCollapse
      }
+  },
+  computed: {
+      currentPath: function(){return this.$router.history.current.path}
   }
 };
 </script>
