@@ -2,13 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/login.vue'
 import Admin from './views/admin.vue'
+import Overview from './views/overview.vue'
 
 
 Vue.use(Router)
 
 const router = new Router({
-    routes: [
-        { path: '/admin', component: Admin },
+    routes: [{
+            path: '/admin',
+            component: Admin,
+            redirect: '/admin/overview',
+            children: [
+                { path: '/admin/overview', component: Overview }
+            ]
+        },
         { path: '/admin/login', component: Login },
     ]
 })
