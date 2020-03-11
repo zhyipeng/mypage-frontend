@@ -14,6 +14,13 @@
       </el-row>
 
       <List :data="posts" :attrs="ListAttrs"></List>
+      <pagination
+        class='pagination'
+        :total="total"
+        :pageSizes="[10,50,100]"
+        @size_change="handleSizeChange"
+        @page_change="handleCurrentPageChange"
+      ></pagination>
     </el-card>
   </div>
 </template>
@@ -21,29 +28,19 @@
 <script>
 import List from "../common/list";
 import BreadCrumb from "../common/breadCrumb";
+import Pagination from "../common/pagination";
+import { api } from "../../core/api.js";
 
 export default {
   name: "PostList",
   data: function() {
     return {
-      q: '',
+      q: "",
       breadCrumbItems: [
         { path: "/admin/overview", name: "首页" },
         { path: "", name: "用户列表" }
       ],
-      posts: [
-        {
-          created_at: "2016-05-02",
-          title: "王小虎",
-          category: { name: "上海市普陀区金弄", id: 1 },
-          tags: "1,2,3"
-        },
-        {
-          created_at: "2016-05-04",
-          title: "王小虎",
-          category: { name: "上海市普陀区金弄", id: 1 }
-        }
-      ],
+      posts: [],
       ListAttrs: [
         { attr: "title", label: "标题" },
         { attr: "created_at", label: "创建时间" },
@@ -51,12 +48,36 @@ export default {
         { attr: "tags", label: "标签" },
         { attr: "is_top", label: "是否置顶", type: "bool" },
         { attr: "", label: "操作", type: "operations" }
-      ]
+      ],
+      currentPage: 1,
+      size: 10,
+      total: 0
     };
   },
   components: {
     List,
-    BreadCrumb
+    BreadCrumb,
+    Pagination
+  },
+  created() {
+    this.getPosts();
+  },
+  methods: {
+    async getPosts() {
+      let ret = await api.get("/v1/post", {
+        params: { page: this.currentPage, size: this.size }
+      });
+      this.posts = ret.data;
+      this.total = ret.page_info["total"];
+    },
+    handleSizeChange(size) {
+      this.size = size;
+      this.getPosts();
+    },
+    handleCurrentPageChange(page) {
+      this.currentPage = page;
+      this.getPosts();
+    }
   }
 };
 </script>
@@ -65,5 +86,8 @@ export default {
 .search-row {
   justify-content: space-between;
   margin-bottom: 20px;
+}
+.pagination {
+  text-align: center;
 }
 </style>

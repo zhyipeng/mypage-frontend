@@ -18,6 +18,7 @@ import {
     Col,
     Table,
     TableColumn,
+    Pagination
 } from 'element-ui'
 
 Vue.use(Button)
@@ -37,6 +38,7 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Pagination)
 
 // 全局注册
 Vue.prototype.$message = Message

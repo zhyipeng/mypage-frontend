@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'http://127.0.0.1:8088'
 axios.interceptors.request.use(config => {
     let token = window.sessionStorage.getItem('token')
     if (!token) return config
-    config.headers.Application = token
+    config.headers.Authorization = token
     return config
 })
 
@@ -37,6 +37,10 @@ const api = {
 
     post(url, data) {
         return api.request(axios.post, url, data)
+    },
+
+    get(url, data = {}) {
+        return api.request(axios.get, url, data)
     },
 
 }
