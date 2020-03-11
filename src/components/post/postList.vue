@@ -9,7 +9,7 @@
           </div>
         </el-col>
         <el-col :span="2">
-          <el-button plain>写文章</el-button>
+          <el-button plain @click="writePost">写文章</el-button>
         </el-col>
       </el-row>
 
@@ -38,7 +38,7 @@ export default {
       q: "",
       breadCrumbItems: [
         { path: "/admin/overview", name: "首页" },
-        { path: "", name: "用户列表" }
+        { path: "", name: "文章管理" }
       ],
       posts: [],
       ListAttrs: [
@@ -77,6 +77,9 @@ export default {
     handleCurrentPageChange(page) {
       this.currentPage = page;
       this.getPosts();
+    },
+    writePost() {
+      this.$router.push('/admin/posts/create')
     }
   }
 };

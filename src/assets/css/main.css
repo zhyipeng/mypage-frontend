@@ -10,3 +10,7 @@ body,
     margin-bottom: 15px;
     font-size: 12px;
 }
+
+.el-transfer-panel__filter {
+    width: 88%;
+}

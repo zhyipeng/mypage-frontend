@@ -18,7 +18,10 @@ import {
     Col,
     Table,
     TableColumn,
-    Pagination
+    Pagination,
+    Select,
+    Option,
+    Transfer,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -39,6 +42,9 @@ Vue.use(Col)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(Transfer)
 
 // 全局注册
 Vue.prototype.$message = Message

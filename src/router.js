@@ -4,6 +4,7 @@ import Login from './views/login.vue'
 import Admin from './views/admin.vue'
 import Overview from './views/overview.vue'
 import PostList from './components/post/postList.vue'
+import CreatePost from './components/post/create.vue'
 
 
 Vue.use(Router)
@@ -16,6 +17,7 @@ const router = new Router({
             children: [
                 { path: '/admin/overview', component: Overview },
                 { path: '/admin/posts', component: PostList },
+                { path: '/admin/posts/create', component: CreatePost },
             ]
         },
         { path: '/admin/login', component: Login },
