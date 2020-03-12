@@ -12,15 +12,16 @@
         </el-form-item>
         <el-form-item label="分类" prop="category_id">
           <el-select v-model="createForm.category_id" placeholder="请选择分类">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
+            <el-option
+              v-for="cate in categories"
+              :key="cate.id"
+              :label="cate.name"
+              :value="cate.id"
+            ></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="标签" prop="tags_id">
           <el-transfer
-            filterable
-            :filter-method="queryTags"
-            filter-placeholder
             :data="tags"
             v-model="createForm.tags_id"
             :titles="['未选', '已选']"
@@ -28,13 +29,12 @@
         </el-form-item>
 
         <el-form-item label="正文" prop="body">
-            <MarkdownPro v-model="createForm.body"></MarkdownPro>
+          <MarkdownPro v-model="createForm.body"></MarkdownPro>
         </el-form-item>
 
-
         <div class="btn">
-            <el-button type="primary" @click="submit">保存</el-button>
-            <el-button type="" @click="cancel">返回</el-button>
+          <el-button type="primary" @click="submit">保存</el-button>
+          <el-button type @click="cancel">返回</el-button>
         </div>
       </el-form>
     </el-card>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { api } from "../../core/api.js";
 import BreadCrumb from "../common/breadCrumb";
 import { MarkdownPro } from "vue-meditor";
 
@@ -73,41 +74,45 @@ export default {
         category_id: [
           { required: true, message: "请选择分类", trigger: "blur" }
         ],
-        body: [{ required: true, message: "请输入正文", trigger: "blur" }],
+        body: [{ required: true, message: "请输入正文", trigger: "blur" }]
       },
-      tags: [
-        { label: "python", key: 1 },
-        { label: "go", key: 2 },
-        { label: "php", key: 3 }
-      ],
+      tags: [],
       tags_id: []
     };
   },
   components: {
     BreadCrumb,
-    MarkdownPro,
+    MarkdownPro
   },
   methods: {
-    queryTags(q = null) {
-      return [
-        { label: "python", key: 1 },
-        { label: "go", key: 2 },
-        { label: "php", key: 3 }
-      ];
-    },
     submit() {
       console.log(this.createForm);
     },
     cancel() {
-        this.$router.push('/admin/posts')
+      this.$router.push("/admin/posts");
+    },
+    async getCategories() {
+      let ret = await api.get("/v1/post/categories");
+      this.categories = ret;
+    },
+    async getTags() {
+      let ret = await api.get("/v1/post/tags");
+      for (let i=0; i < ret.length; i++) {
+        ret[i].key = ret[i].id
+      }
+      this.tags = ret;
     }
   },
+  created() {
+    this.getCategories();
+    this.getTags();
+  }
 };
 </script>
 
 <style lang="less" scoped>
 .btn {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
