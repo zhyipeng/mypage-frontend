@@ -7,6 +7,8 @@ import PostList from './components/post/postList.vue'
 import CreatePost from './components/post/create.vue'
 import TagList from './components/post/tagList.vue'
 import CategoryList from './components/post/categoryList.vue'
+import Index from './views/index.vue'
+import Posts from './views/posts.vue'
 
 
 Vue.use(Router)
@@ -25,6 +27,13 @@ const router = new Router({
             ]
         },
         { path: '/admin/login', component: Login },
+        {
+            path: '/',
+            component: Index,
+            children: [
+                { path: '/', component: Posts },
+            ]
+        },
     ]
 })
 

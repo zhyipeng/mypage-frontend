@@ -30,6 +30,7 @@ import List from "../common/list";
 import BreadCrumb from "../common/breadCrumb";
 import Pagination from "../common/pagination";
 import { api } from "../../core/api.js";
+import {timestampToTime} from '../../core/utils.js'
 
 export default {
   name: "PostList",
@@ -43,7 +44,7 @@ export default {
       posts: [],
       ListAttrs: [
         { attr: "title", label: "标题" },
-        { attr: "created_at", label: "创建时间" },
+        { attr: "created_at", label: "创建时间", type: "timestamp"},
         { attr: "category.name", label: "分类" },
         { attr: "tags", label: "标签" },
         { attr: "is_top", label: "是否置顶", type: "bool" },
@@ -67,7 +68,11 @@ export default {
       let ret = await api.get("/v1/post", {
         params: { page: this.currentPage, size: this.size }
       });
-      this.posts = ret.data;
+      let data = ret.data
+      for (let i= 0; i < data.length; i++) {
+        data[i].created_at = timestampToTime(data[i].created_at)
+      }
+      this.posts = data;
       this.total = ret.page_info.total;
     },
     handleSizeChange(size) {
