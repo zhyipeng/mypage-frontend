@@ -14,9 +14,9 @@
         <span class="stat_value">6</span>
         <span class="stat_name">&nbsp;标签</span>
       </div>
-      <el-divider></el-divider>
+      <!-- <el-divider></el-divider> -->
 
-      <div class="link_box">
+      <!-- <div class="link_box">
         <el-row :gutter="90">
           <el-col :span="2">
             <el-button size="mini" icon="el-icon-search" type="info" plain>搜索</el-button>
@@ -30,7 +30,7 @@
             <el-button size="mini" icon="el-icon-search" type="info" plain>搜索</el-button>
           </el-col>
         </el-row>
-      </div>
+      </div> -->
     </div>
 
     <div class="friend_links">

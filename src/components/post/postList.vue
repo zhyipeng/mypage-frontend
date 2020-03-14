@@ -13,9 +13,16 @@
         </el-col>
       </el-row>
 
-      <List :data="posts" :attrs="ListAttrs"></List>
+      <List
+        :data="posts"
+        :attrs="ListAttrs"
+        @edit_item="editPost"
+        @delete_item="deletePost"
+        @view_item="viewPost"
+        @switch_change="switchIsTop"
+      ></List>
       <pagination
-        class='pagination'
+        class="pagination"
         :total="total"
         :pageSizes="[10,50,100]"
         @size_change="handleSizeChange"
@@ -30,7 +37,7 @@ import List from "../common/list";
 import BreadCrumb from "../common/breadCrumb";
 import Pagination from "../common/pagination";
 import { api } from "../../core/api.js";
-import {timestampToTime} from '../../core/utils.js'
+import { timestampToTime } from "../../core/utils.js";
 
 export default {
   name: "PostList",
@@ -44,9 +51,8 @@ export default {
       posts: [],
       ListAttrs: [
         { attr: "title", label: "标题" },
-        { attr: "created_at", label: "创建时间", type: "timestamp"},
+        { attr: "created_at", label: "创建时间" },
         { attr: "category.name", label: "分类" },
-        { attr: "tags", label: "标签" },
         { attr: "is_top", label: "是否置顶", type: "bool" },
         { attr: "", label: "操作", type: "operations" }
       ],
@@ -68,9 +74,9 @@ export default {
       let ret = await api.get("/v1/post", {
         params: { page: this.currentPage, size: this.size }
       });
-      let data = ret.data
-      for (let i= 0; i < data.length; i++) {
-        data[i].created_at = timestampToTime(data[i].created_at)
+      let data = ret.data;
+      for (let i = 0; i < data.length; i++) {
+        data[i].created_at = timestampToTime(data[i].created_at);
       }
       this.posts = data;
       this.total = ret.page_info.total;
@@ -84,8 +90,23 @@ export default {
       this.getPosts();
     },
     writePost() {
-      this.$router.push('/admin/posts/create')
-    }
+      this.$router.push("/admin/posts/create");
+    },
+    viewPost(id) {
+      this.$router.push("/")
+    },
+    deletePost(id) {
+      console.log(id)
+    },
+    editPost(id) {
+      this.$router.push({path: `/admin/posts/update/${id}`});
+    },
+    async switchIsTop(id, isTop) {
+      let ret = await api.put('/v1/post/' + id + '/is_top', {'is_top': isTop})
+      if (ret) {
+        this.$message.success("设置成功")
+      }
+    },
   }
 };
 </script>

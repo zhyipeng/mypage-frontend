@@ -1,11 +1,21 @@
 <template>
   <div>
     <PostItem v-for="post in posts" :key="post.id" :post="post"></PostItem>
+      <pagination
+        class='pagination'
+        :total="total"
+        :pageSizes="[10,50,100]"
+        :layout="'prev, pager, next'"
+        :bgStyle="true"
+        @size_change="handleSizeChange"
+        @page_change="handleCurrentPageChange"
+      ></pagination>
   </div>
 </template>
 
 <script>
 import PostItem from "../components/post/postItem";
+import Pagination from "../components/common/pagination";
 import { api } from "../core/api.js";
 import {timestampToTime} from '../core/utils.js'
 
@@ -13,11 +23,15 @@ export default {
   name: "Posts",
   data: function(){
       return {
-          posts: []
+          posts: [],
+          currentPage: 1,
+          size: 10,
+          total: 0
       }
   },
   components: {
-    PostItem
+    PostItem,
+    Pagination
   },
   methods: {
     async getPosts() {
@@ -45,3 +59,10 @@ export default {
   }
 };
 </script>
+
+<style lang="less" scoped>
+.el-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+</style>

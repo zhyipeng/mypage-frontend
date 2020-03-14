@@ -24,6 +24,8 @@ import {
     Transfer,
     Divider,
     Link,
+    Switch,
+    ButtonGroup,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -49,6 +51,8 @@ Vue.use(Option)
 Vue.use(Transfer)
 Vue.use(Divider)
 Vue.use(Link)
+Vue.use(Switch)
+Vue.use(ButtonGroup)
 
 // 全局注册
 Vue.prototype.$message = Message

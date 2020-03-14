@@ -47,7 +47,7 @@ export default {
 
 <style lang="less" scoped>
 .el-card {
-  padding: 40px 0;
+  padding: 30px 0 40px 0;
   margin-bottom: 20px;
 }
 .post_title {

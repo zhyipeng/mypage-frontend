@@ -42,6 +42,11 @@ const api = {
     get(url, data = {}) {
         return api.request(axios.get, url, data)
     },
-
+    put(url, data) {
+        return api.request(axios.put, url, data)
+    },
+    delete(url) {
+        return api.request(axios.delte, url)
+    }
 }
 export { api }

@@ -87,6 +87,18 @@ export default {
   methods: {
     submit() {
       console.log(this.createForm);
+      if (this.id) {
+        if (this.updatePost()) {
+          this.$message.success("保存成功")
+          setTimeout(_ => {this.$router.push('/admin/posts')}, 1000)
+        }
+      }
+      else {
+        if (this.createPost()) {
+          this.$message.success("保存成功")
+          setTimeout(_ => {this.$router.push('/admin/posts')}, 1000)
+        }
+      }
     },
     cancel() {
       this.$router.push("/admin/posts");
@@ -101,11 +113,32 @@ export default {
         ret[i].key = ret[i].id
       }
       this.tags = ret;
+    },
+    async getPost(){
+      let ret = await api.get("/v1/post/" + this.id)
+      this.createForm.category_id = ret.category.id
+      this.createForm.title = ret.title
+      this.createForm.summary = ret.summary
+      this.createForm.body = ret.body
+      for (let index = 0; index < ret.tags.length; index++) {
+        this.createForm.tags_id.push(ret.tags[index].id)
+      }
+    },
+    async updatePost(){
+      let ret = await api.put("/v1/post/" + this.id, this.createForm)
+      return ret
+    },
+    async createPost(){
+      let ret = await api.post('/v1/post', this.createForm)
+      return ret
     }
   },
   created() {
     this.getCategories();
     this.getTags();
+    if (this.id) {
+      this.getPost()
+    }
   }
 };
 </script>

@@ -1,11 +1,13 @@
 <template>
     <el-pagination
+      v-if="total >= size"
+      :background="bgStyle"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage"
       :page-sizes="pageSizes"
       :page-size="size"
-      layout="total, sizes, prev, pager, next, jumper"
+      :layout="layout"
       :total="total">
     </el-pagination>
 </template>
@@ -21,7 +23,15 @@ export default {
   },
   props: {
     pageSizes: Array,
-    total: Number
+    total: Number,
+    layout: {
+      type: String,
+      default: 'total, sizes, prev, pager, next, jumper'
+    },
+    bgStyle: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     'handleSizeChange': function(size){

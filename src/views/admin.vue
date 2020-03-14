@@ -11,9 +11,9 @@
     <el-container>
       <el-aside :width="isCollapse ? '64px': '200px'">
         <el-menu
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
+          background-color="#555"
+          text-color="#888"
+          active-text-color="#fff"
           :collapse="isCollapse"
           :collapse-transition="false"
           :default-active="currentPath"
@@ -80,7 +80,7 @@ export default {
 }
 
 .el-header {
-  background-color: #125212;
+  background-color: #111;
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -100,18 +100,21 @@ export default {
 }
 
 .el-aside {
-  background-color: #123521;
+  background-color: #555;
 }
 
 .el-main {
   background-color: #ddd;
 }
 .toggle-btn {
-    background-color: #fff;
+    background-color: #444;
     font-size: 10px;
     line-height: 24px;
     text-align: center;
     letter-spacing: 0.2em;
     cursor: pointer;
+}
+.el-menu {
+  width: 100%;
 }
 </style>
