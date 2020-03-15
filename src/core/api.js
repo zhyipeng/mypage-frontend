@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 
 axios.defaults.baseURL = 'http://106.13.226.30'
-    // axios.defaults.baseURL = 'http://127.0.0.1:8088'
+axios.defaults.baseURL = 'http://127.0.0.1:8088'
 axios.interceptors.request.use(config => {
     let token = window.sessionStorage.getItem('token')
     if (!token) return config

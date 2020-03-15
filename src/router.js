@@ -11,6 +11,7 @@ import CategoryList from './components/post/categoryList.vue'
 import Index from './views/index.vue'
 import Posts from './views/posts.vue'
 import PostDetail from './views/detail.vue'
+import ToDoList from './views/todos.vue'
 
 
 Vue.use(Router)
@@ -27,6 +28,7 @@ const router = new Router({
                 { path: '/admin/posts/update/:id', component: UpdatePost },
                 { path: '/admin/tags', component: TagList },
                 { path: '/admin/categories', component: CategoryList },
+                { path: '/admin/todos', component: ToDoList },
             ]
         },
         { path: '/admin/login', component: Login },
