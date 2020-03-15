@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div class="post_title">
-      <a class="post-title-link">{{post.title}}</a>
+      <a class="post-title-link" @click="jumpToDetail(post.id)">{{post.title}}</a>
     </div>
     <div class="info">
       <i class="el-icon-edit"></i>
@@ -16,7 +16,7 @@
     <div class="brief">{{post.summary}}</div>
     <a
       :class="{'btn': true, 'btn-hover': btnHover}"
-      @click="mouseLeave"
+      @click="jumpToDetail(post.id)"
       @mouseenter="mouseEnter"
       @mouseleave="mouseLeave"
     >查看全文 >></a>
@@ -40,6 +40,9 @@ export default {
     },
     mouseLeave() {
       this.btnHover = false;
+    },
+    jumpToDetail(id){
+      this.$router.push('/' + id)
     }
   }
 };
@@ -53,12 +56,13 @@ export default {
 .post_title {
   font-size: 26px;
   text-align: center;
+  cursor: pointer;
 }
 .info {
   font-size: 12px;
   text-align: center;
   color: #999;
-  margin-top: 3px;
+  margin-top: 5px;
   margin-bottom: 60px;
   span {
     margin-left: 5px;

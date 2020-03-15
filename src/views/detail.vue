@@ -18,7 +18,7 @@
         <MarkdownPro 
         v-model="post.body" 
         :bordered="false" 
-        height="100%"
+        :height="null"
         theme="gitHub" 
         isPreview></MarkdownPro>
     </div>
