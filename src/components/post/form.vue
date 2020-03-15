@@ -21,11 +21,18 @@
           </el-select>
         </el-form-item>
         <el-form-item label="标签" prop="tags_id">
-          <el-transfer
-            :data="tags"
-            v-model="createForm.tags_id"
-            :titles="['未选', '已选']"
-          ></el-transfer>
+          <el-checkbox-group v-model="tags_id">
+            <el-checkbox
+              v-for="t in tags"
+              :label="t.id"
+              :key="t.id"
+              :checked="checkTag(t.id)"
+            >{{t.name}}</el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+
+        <el-form-item label="是否置顶" prop="is_top">
+          <el-switch v-model="createForm.is_top"></el-switch>
         </el-form-item>
 
         <el-form-item label="正文" prop="body">
@@ -67,7 +74,8 @@ export default {
         tags_id: [],
         title: "",
         summary: "",
-        body: ""
+        body: "",
+        is_top: false
       },
       rules: {
         title: [{ required: true, message: "请输入标题", trigger: "blur" }],
@@ -86,17 +94,21 @@ export default {
   },
   methods: {
     submit() {
+      this.createForm.tags_id = this.tags_id;
       console.log(this.createForm);
       if (this.id) {
         if (this.updatePost()) {
-          this.$message.success("保存成功")
-          setTimeout(_ => {this.$router.push('/admin/posts')}, 1000)
+          this.$message.success("保存成功");
+          setTimeout(_ => {
+            this.$router.push("/admin/posts");
+          }, 1000);
         }
-      }
-      else {
+      } else {
         if (this.createPost()) {
-          this.$message.success("保存成功")
-          setTimeout(_ => {this.$router.push('/admin/posts')}, 1000)
+          this.$message.success("保存成功");
+          setTimeout(_ => {
+            this.$router.push("/admin/posts");
+          }, 1000);
         }
       }
     },
@@ -109,35 +121,41 @@ export default {
     },
     async getTags() {
       let ret = await api.get("/v1/post/tags");
-      for (let i=0; i < ret.length; i++) {
-        ret[i].key = ret[i].id
-      }
       this.tags = ret;
     },
-    async getPost(){
-      let ret = await api.get("/v1/post/" + this.id)
-      this.createForm.category_id = ret.category.id
-      this.createForm.title = ret.title
-      this.createForm.summary = ret.summary
-      this.createForm.body = ret.body
+    async getPost() {
+      let ret = await api.get("/v1/post/" + this.id);
+      this.createForm.category_id = ret.category.id;
+      this.createForm.title = ret.title;
+      this.createForm.summary = ret.summary;
+      this.createForm.body = ret.body;
+      this.is_top = ret.is_top
       for (let index = 0; index < ret.tags.length; index++) {
-        this.createForm.tags_id.push(ret.tags[index].id)
+        this.tags_id.push(ret.tags[index].id);
       }
     },
-    async updatePost(){
-      let ret = await api.put("/v1/post/" + this.id, this.createForm)
-      return ret
+    async updatePost() {
+      let ret = await api.put("/v1/post/" + this.id, this.createForm);
+      return ret;
     },
-    async createPost(){
-      let ret = await api.post('/v1/post', this.createForm)
-      return ret
+    async createPost() {
+      let ret = await api.post("/v1/post", this.createForm);
+      return ret;
+    },
+    checkTag(tag_id) {
+      for (let index = 0; index < this.tags_id.length; index++) {
+        if (this.tags_id[index] == tag_id) {
+          return true;
+        }
+      }
+      return false;
     }
   },
   created() {
     this.getCategories();
     this.getTags();
     if (this.id) {
-      this.getPost()
+      this.getPost();
     }
   }
 };
