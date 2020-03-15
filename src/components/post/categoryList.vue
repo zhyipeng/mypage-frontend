@@ -5,7 +5,13 @@
       <div class="btn">
         <el-button plain @click="createCate">创建分类</el-button>
       </div>
-      <List :data="cates" :attrs="ListAttrs"></List>
+      <List
+        :data="cates"
+        :attrs="ListAttrs"
+        @edit_item="editCate"
+        @delete_item="deleteCate"
+        @view_item="viewCate"
+      ></List>
       <pagination
         class="pagination"
         :total="total"
@@ -69,7 +75,7 @@ export default {
         cancelButtonText: "取消"
       })
         .then(async ({ value }) => {
-          let ret = await api.post("/v1/post/categories", { name: value});
+          let ret = await api.post("/v1/post/categories", { name: value });
           if (!ret) {
             return;
           }
@@ -77,9 +83,15 @@ export default {
             type: "success",
             message: '"' + value + '"添加成功'
           });
-          this.getCates()
+          this.getCates();
         })
         .catch(() => {});
+    },
+    viewCate(id){
+    },
+    editCate(id) {
+    },
+    deleteCate(id) {
     },
   },
   created() {

@@ -13,7 +13,7 @@
         <el-link>{{post.category.name}}</el-link>
       </span>
     </div>
-    <div class="brief">{{post.brief}}</div>
+    <div class="brief">{{post.summary}}</div>
     <a
       :class="{'btn': true, 'btn-hover': btnHover}"
       @click="mouseLeave"
@@ -110,5 +110,7 @@ a {
 }
 .brief {
   margin-bottom: 25px;
+  padding: 0 30px;
+  color: #555;
 }
 </style>

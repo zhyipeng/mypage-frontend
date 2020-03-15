@@ -10,6 +10,7 @@ import TagList from './components/post/tagList.vue'
 import CategoryList from './components/post/categoryList.vue'
 import Index from './views/index.vue'
 import Posts from './views/posts.vue'
+import PostDetail from './views/detail.vue'
 
 
 Vue.use(Router)
@@ -34,6 +35,7 @@ const router = new Router({
             component: Index,
             children: [
                 { path: '/', component: Posts },
+                { path: '/:id', component: PostDetail },
             ]
         },
     ]
