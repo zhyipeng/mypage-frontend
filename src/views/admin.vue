@@ -41,7 +41,7 @@
             <span slot="title">待办事项</span>
           </el-menu-item>
           <el-menu-item index="/admin/settings">
-            <i class="el-icon-finished"></i>
+            <i class="el-icon-s-operation"></i>
             <span slot="title">系统设置</span>
           </el-menu-item>
         </el-menu>
