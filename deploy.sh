@@ -10,23 +10,23 @@ npm run build
 cd dist
 
 # 部署到自定义域域名
-# echo 'www.example.com' > CNAME
+echo 'www.zhyipeng.site' > CNAME
 
-# git init
-# git add -A
-# git commit -m 'deploy'
+git init
+git add -A
+git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io
-# git push -f git@github.com:zhyipeng/zhyipeng.github.io.git master
+git push -f git@github.com:zhyipeng/zhyipeng.github.io.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:zhyipeng/mypage-frontend.git master:gh-pages
 
-# cd -
+cd -
 
 
-zip -r public.zip .
-ssh zhyipeng "rm -rf /srv/www/public"
-ssh zhyipeng "mkdir /srv/www/public"
-scp public.zip root@zhyipeng:/srv/www/public
-ssh zhyipeng "unzip /srv/www/public/public.zip -d /srv/www/public"
+# zip -r public.zip .
+# ssh zhyipeng "rm -rf /srv/www/public"
+# ssh zhyipeng "mkdir /srv/www/public"
+# scp public.zip root@zhyipeng:/srv/www/public
+# ssh zhyipeng "unzip /srv/www/public/public.zip -d /srv/www/public"

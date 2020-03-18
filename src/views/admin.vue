@@ -5,7 +5,10 @@
         <img src="../assets/logo.png" alt />
         <span>MyPage Admin</span>
       </div>
-      <Logout class="logout-btn"></Logout>
+      <div class="btns">
+        <el-button icon="el-icon-s-home" @click="homepage"></el-button>
+        <el-button icon="el-icon-user-solid" @click="logout"></el-button>
+      </div>
     </el-header>
 
     <el-container>
@@ -36,7 +39,7 @@
             <i class="el-icon-paperclip"></i>
             <span slot="title">标签管理</span>
           </el-menu-item>
-          <el-menu-item index="/admin/todos">
+          <el-menu-item index="/admin/todolists">
             <i class="el-icon-finished"></i>
             <span slot="title">待办事项</span>
           </el-menu-item>
@@ -48,32 +51,36 @@
       </el-aside>
 
       <el-main>
-          <router-view></router-view>
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import Logout from "../components/logout";
-
 export default {
   name: "Admin",
-  components: {
-    Logout
-  },
-  data: function(){
-      return {
-          isCollapse: false,
-      }
+  data: function() {
+    return {
+      isCollapse: false
+    };
   },
   methods: {
-     toggleCollapse() {
-         this.isCollapse = !this.isCollapse
-     }
+    toggleCollapse() {
+      this.isCollapse = !this.isCollapse;
+    },
+    homepage() {
+      this.$router.push('/')
+    },
+    logout() {
+      window.localStorage.removeItem('token')
+      this.$router.push('/admin/login')
+    }
   },
   computed: {
-      currentPath: function(){return this.$router.history.current.path}
+    currentPath: function() {
+      return this.$router.history.current.path;
+    }
   }
 };
 </script>
@@ -111,14 +118,22 @@ export default {
   background-color: #ddd;
 }
 .toggle-btn {
-    background-color: #444;
-    font-size: 10px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    cursor: pointer;
+  background-color: #444;
+  font-size: 10px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }
 .el-menu {
   width: 100%;
+}
+.btns {
+  .el-button {
+    font-size: 26px;
+    color: #fff;
+    background: none;
+    border: none;
+  }
 }
 </style>

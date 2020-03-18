@@ -36,11 +36,11 @@ export default {
       this.displayDelete = false;
     },
     async deleteItem() {
-      let ret = await api.delete("/v1/todolist/" + this.task.id);
+      let ret = await api.delete("/v1/todolist/items/" + this.task.id);
       this.$emit("delete_item");
     },
     async changeFinished() {
-      let ret = await api.put("/v1/todolist/" + this.task.id + "/finished", {
+      let ret = await api.put("/v1/todolist/items/" + this.task.id + "/finished", {
         is_finished: !this.task.is_finished
       });
       this.task.is_finished = !this.task.is_finished

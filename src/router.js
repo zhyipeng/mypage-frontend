@@ -11,7 +11,8 @@ import CategoryList from './components/post/categoryList.vue'
 import Index from './views/index.vue'
 import Posts from './views/posts.vue'
 import PostDetail from './views/detail.vue'
-import ToDoList from './views/todos.vue'
+import Todos from './views/todos.vue'
+import TodoLists from './views/todoList.vue'
 
 
 Vue.use(Router)
@@ -28,7 +29,8 @@ const router = new Router({
                 { path: '/admin/posts/update/:id', component: UpdatePost },
                 { path: '/admin/tags', component: TagList },
                 { path: '/admin/categories', component: CategoryList },
-                { path: '/admin/todos', component: ToDoList },
+                { path: '/admin/todolists/:id', component: Todos },
+                { path: '/admin/todolists', component: TodoLists },
             ]
         },
         { path: '/admin/login', component: Login },
@@ -46,7 +48,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
     if (!to.path.startsWith('/admin')) return next();
     if (to.path === '/admin/login') return next();
-    const token = window.sessionStorage.getItem('token')
+    const token = window.localStorage.getItem('token')
     if (!token) return next('/admin/login')
     next()
 })

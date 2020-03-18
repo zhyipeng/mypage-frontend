@@ -1,4 +1,6 @@
 <template>
+<div>
+      <BreadCrumb :items="breadCrumbItems"></BreadCrumb>
   <el-card>
     <div class="block">
       <el-timeline>
@@ -17,28 +19,38 @@
       </el-timeline>
     </div>
   </el-card>
+</div>
 </template>
 
 <script>
 import ToDoItem from "../components/todoItem";
+import BreadCrumb from "../components/common/breadCrumb"
 import { MessageBox } from "element-ui";
 import { api } from "../core/api.js";
 import { timestampToTime } from "../core/utils.js";
 
 export default {
-  name: "ToDoLists",
+  name: "Todos",
   data: function() {
     return {
       items: [],
       currentPage: 1,
       size: 10,
-      total: 0
+      total: 0,
+      id: null,
+      breadCrumbItems: [
+        { path: "/admin/overview", name: "首页" },
+        { path: "/admin/todolists", name: "任务簿" },
+        { path: "", name: "Todo List" },
+      ],
     };
   },
   components: {
-    ToDoItem
+    ToDoItem,
+    BreadCrumb
   },
   created() {
+    this.id = this.$route.params.id;
     this.getItems();
   },
   methods: {
@@ -53,20 +65,19 @@ export default {
         .catch(() => {});
     },
     async createItem(task) {
-      let ret = await api.post("/v1/todolist/", { task: task });
+      let ret = await api.post("/v1/todolist/" + this.id + "/items", {
+        task: task
+      });
       this.getItems();
       return ret;
     },
     async getItems() {
-      let ret = await api.get("/v1/todolist/", {
-        params: { page: this.currentPage, size: this.size }
-      });
-      let data = ret.data;
+      let ret = await api.get("/v1/todolist/" + this.id + "/items", {});
+      let data = ret;
       for (let i = 0; i < data.length; i++) {
         data[i].created_at = timestampToTime(data[i].created_at);
       }
-      this.items = ret.data;
-      this.total = ret.page_info.total;
+      this.items = ret
     }
   }
 };

@@ -56,7 +56,7 @@ export default {
                 const data = await api.post('/v1/admin/login', this.form)
                 if (!data || !data.token) {return}
                 this.$message.success("登录成功")
-                window.sessionStorage.setItem('token', data.token)
+                window.localStorage.setItem('token', data.token)
                 this.$router.push('/admin')
             })
         }

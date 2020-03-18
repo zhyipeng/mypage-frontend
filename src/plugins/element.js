@@ -30,6 +30,7 @@ import {
     CheckboxGroup,
     Timeline,
     TimelineItem,
+    Progress
 } from 'element-ui'
 
 Vue.use(Button)
@@ -61,6 +62,7 @@ Vue.use(Checkbox)
 Vue.use(CheckboxGroup)
 Vue.use(Timeline)
 Vue.use(TimelineItem)
+Vue.use(Progress)
 
 // 全局注册
 Vue.prototype.$message = Message
