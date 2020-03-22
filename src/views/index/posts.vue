@@ -35,8 +35,11 @@ export default {
   },
   methods: {
     async getPosts() {
+      let params = this.$route.query
+      params.page = this.currentPage
+      params.size = this.size
       let ret = await api.get("/v1/post", {
-        params: { page: this.currentPage, size: this.size }
+        params: params
       });
       let data = ret.data;
       for (let i = 0; i < data.length; i++) {

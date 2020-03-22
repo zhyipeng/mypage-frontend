@@ -15,7 +15,7 @@
             <i class="el-icon-video-camera-solid"></i>
             <span slot="title">归档</span>
           </el-menu-item>
-          <el-menu-item index="/tag">
+          <el-menu-item index="/tags">
             <i class="el-icon-s-management"></i>
             <span slot="title">标签</span>
           </el-menu-item>

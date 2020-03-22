@@ -5,13 +5,13 @@
     <div class="interval"></div>
     <div class="info_card">
       <div class="stat_box">
-        <span class="stat_value">6</span>
+        <span class="stat_value">{{post_total}}</span>
         <span class="stat_name">&nbsp;文章</span>
         <el-divider direction="vertical"></el-divider>
-        <span class="stat_value">6</span>
+        <span class="stat_value">{{category_total}}</span>
         <span class="stat_name">&nbsp;分类</span>
         <el-divider direction="vertical"></el-divider>
-        <span class="stat_value">6</span>
+        <span class="stat_value">{{tag_total}}</span>
         <span class="stat_name">&nbsp;标签</span>
       </div>
       <!-- <el-divider></el-divider> -->
@@ -42,6 +42,7 @@
 <script>
 import IndexCard from "./indexCard";
 import Menu from "./menu";
+import {api} from '../../core/api.js'
 
 export default {
   name: "Aside",
@@ -53,8 +54,19 @@ export default {
     return {
       post_total: 10,
       category_total: 4,
-      tag_total: 1
+      tag_total: 1,
     };
+  },
+  methods: {
+    async get_overview(){
+      let ret = await api.get('/v1/post/overview')
+      this.post_total = ret.post_count
+      this.category_total = ret.category_count
+      this.tag_total = ret.tag_count
+    }
+  },
+  created(){
+    this.get_overview()
   }
 };
 </script>

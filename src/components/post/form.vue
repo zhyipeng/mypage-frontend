@@ -20,8 +20,8 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="标签" prop="tags_id">
-          <el-checkbox-group v-model="tags_id">
+        <el-form-item label="标签">
+          <el-checkbox-group v-model="choiced_tags_id">
             <el-checkbox
               v-for="t in tags"
               :label="t.id"
@@ -85,7 +85,7 @@ export default {
         body: [{ required: true, message: "请输入正文", trigger: "blur" }]
       },
       tags: [],
-      tags_id: []
+      choiced_tags_id: []
     };
   },
   components: {
@@ -94,8 +94,7 @@ export default {
   },
   methods: {
     submit() {
-      this.createForm.tags_id = this.tags_id;
-      console.log(this.createForm);
+      this.createForm.tags_id = this.choiced_tags_id;
       if (this.id) {
         if (this.updatePost()) {
           this.$message.success("保存成功");
@@ -122,6 +121,9 @@ export default {
     async getTags() {
       let ret = await api.get("/v1/post/tags");
       this.tags = ret;
+      if (this.id) {
+        this.getPost();
+      }
     },
     async getPost() {
       let ret = await api.get("/v1/post/" + this.id);
@@ -131,7 +133,7 @@ export default {
       this.createForm.body = ret.body;
       this.is_top = ret.is_top
       for (let index = 0; index < ret.tags.length; index++) {
-        this.tags_id.push(ret.tags[index].id);
+        this.choiced_tags_id.push(ret.tags[index].id);
       }
     },
     async updatePost() {
@@ -143,8 +145,8 @@ export default {
       return ret;
     },
     checkTag(tag_id) {
-      for (let index = 0; index < this.tags_id.length; index++) {
-        if (this.tags_id[index] == tag_id) {
+      for (let index = 0; index < this.choiced_tags_id.length; index++) {
+        if (this.choiced_tags_id[index] == tag_id) {
           return true;
         }
       }
@@ -154,9 +156,6 @@ export default {
   created() {
     this.getCategories();
     this.getTags();
-    if (this.id) {
-      this.getPost();
-    }
   }
 };
 </script>
