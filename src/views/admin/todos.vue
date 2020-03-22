@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import ToDoItem from "../components/todoItem";
-import BreadCrumb from "../components/common/breadCrumb"
+import ToDoItem from "../../components/todoItem";
+import BreadCrumb from "../../components/common/breadCrumb"
 import { MessageBox } from "element-ui";
-import { api } from "../core/api.js";
-import { timestampToTime } from "../core/utils.js";
+import { api } from "../../core/api.js";
+import { timestampToTime } from "../../core/utils.js";
 
 export default {
   name: "Todos",

@@ -2,7 +2,7 @@
   <el-container>
     <el-header>
       <div class="logo-box">
-        <img src="../assets/logo.png" alt />
+        <img src="../../assets/logo.png" alt />
         <span>MyPage Admin</span>
       </div>
       <div class="btns">

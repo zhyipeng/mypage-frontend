@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import PostForm from './form'
+import PostForm from '../../components/post/form'
 
 export default {
     name: 'UpdatePost',

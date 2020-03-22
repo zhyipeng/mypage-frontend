@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Aside from '../components/aside/aside'
+import Aside from '../../components/aside/aside'
 
 export default {
   name: "Index",

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import PostItem from "../components/post/postItem";
-import Pagination from "../components/common/pagination";
-import { api } from "../core/api.js";
-import {timestampToTime} from '../core/utils.js'
+import PostItem from "../../components/post/postItem";
+import Pagination from "../../components/common/pagination";
+import { api } from "../../core/api.js";
+import {timestampToTime} from '../../core/utils.js'
 
 export default {
   name: "Posts",

@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import {api} from '../core/api.js'
-import {formatDatetime} from '../core/utils.js'
+import {api} from '../../core/api.js'
+import {formatDatetime} from '../../core/utils.js'
 import { MarkdownPro } from "vue-meditor";
 
 

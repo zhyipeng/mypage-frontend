@@ -3,15 +3,9 @@
     <BreadCrumb :items="breadCrumbItems"></BreadCrumb>
     <el-card class="box-card">
       <div class="btn">
-        <el-button plain @click="createCate">创建分类</el-button>
+        <el-button plain @click="createTag">创建标签</el-button>
       </div>
-      <List
-        :data="cates"
-        :attrs="ListAttrs"
-        @edit_item="editCate"
-        @delete_item="deleteCate"
-        @view_item="viewCate"
-      ></List>
+      <List :data="tags" :attrs="ListAttrs"></List>
       <pagination
         class="pagination"
         :total="total"
@@ -24,23 +18,23 @@
 </template>
 
 <script>
-import List from "../common/list";
-import BreadCrumb from "../common/breadCrumb";
-import Pagination from "../common/pagination";
+import List from "../../components/common/list";
+import BreadCrumb from "../../components/common/breadCrumb";
+import Pagination from "../../components/common/pagination";
 import { api } from "../../core/api.js";
 import { MessageBox } from "element-ui";
 
 export default {
-  name: "CategoryList",
+  name: "TagList",
   data: function() {
     return {
       breadCrumbItems: [
         { path: "/admin/overview", name: "首页" },
-        { path: "", name: "分类管理" }
+        { path: "", name: "标签管理" }
       ],
-      cates: [],
+      tags: [],
       ListAttrs: [
-        { attr: "name", label: "分类名" },
+        { attr: "name", label: "标签名" },
         { attr: "", label: "操作", type: "operations" }
       ],
       currentPage: 1,
@@ -54,11 +48,11 @@ export default {
     Pagination
   },
   methods: {
-    async getCates() {
-      let ret = await api.get("/v1/post/categories", {
+    async getTags() {
+      let ret = await api.get("/v1/post/tags", {
         params: { page: this.currentPage, size: this.size }
       });
-      this.cates = ret.data;
+      this.tags = ret.data;
       this.total = ret.page_info.total;
     },
     handleSizeChange(size) {
@@ -69,13 +63,13 @@ export default {
       this.currentPage = page;
       this.getTags();
     },
-    createCate() {
-      MessageBox.prompt("请输入分类名", "添加分类", {
+    createTag() {
+      MessageBox.prompt("请输入标签名", "添加标签", {
         confirmButtonText: "添加",
         cancelButtonText: "取消"
       })
         .then(async ({ value }) => {
-          let ret = await api.post("/v1/post/categories", { name: value });
+          let ret = await api.post("/v1/post/tags", { name: value});
           if (!ret) {
             return;
           }
@@ -83,19 +77,13 @@ export default {
             type: "success",
             message: '"' + value + '"添加成功'
           });
-          this.getCates();
+          this.getTags()
         })
         .catch(() => {});
     },
-    viewCate(id){
-    },
-    editCate(id) {
-    },
-    deleteCate(id) {
-    },
   },
   created() {
-    this.getCates();
+    this.getTags();
   }
 };
 </script>

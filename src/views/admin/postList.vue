@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import List from "../common/list";
-import BreadCrumb from "../common/breadCrumb";
-import Pagination from "../common/pagination";
+import List from '../../components/common/list'
+import BreadCrumb from "../../components/common/breadCrumb";
+import Pagination from "../../components/common/pagination";
 import { api } from "../../core/api.js";
 import { timestampToTime } from "../../core/utils.js";
 

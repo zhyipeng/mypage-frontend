@@ -1,19 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './views/login.vue'
-import Admin from './views/admin.vue'
-import Overview from './views/overview.vue'
-import PostList from './components/post/postList.vue'
-import CreatePost from './components/post/create.vue'
-import UpdatePost from './components/post/update.vue'
-import TagList from './components/post/tagList.vue'
-import CategoryList from './components/post/categoryList.vue'
-import Index from './views/index.vue'
-import Posts from './views/posts.vue'
-import PostDetail from './views/detail.vue'
-import Todos from './views/todos.vue'
-import TodoLists from './views/todoList.vue'
-import Archieve from './views/archieve.vue'
+
+// admin
+import Login from './views/admin/login.vue'
+import Admin from './views/admin/admin.vue'
+import Overview from './views/admin/overview.vue'
+import Todos from './views/admin/todos.vue'
+import TodoLists from './views/admin/todoList.vue'
+
+import PostList from './views/admin/postList.vue'
+import CreatePost from './views/admin/create.vue'
+import UpdatePost from './views/admin/update.vue'
+import TagList from './views/admin/tagList.vue'
+import CategoryList from './views/admin/categoryList.vue'
+
+// index
+import Index from './views/index/index.vue'
+import Posts from './views/index/posts.vue'
+import PostDetail from './views/index/detail.vue'
+import Archieve from './views/index/archieve.vue'
 
 
 Vue.use(Router)

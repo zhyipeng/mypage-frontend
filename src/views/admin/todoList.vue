@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import BreadCrumb from "../components/common/breadCrumb";
-import { api } from "../core/api.js";
+import BreadCrumb from "../../components/common/breadCrumb";
+import { api } from "../../core/api.js";
 import { MessageBox } from "element-ui";
 
 export default {

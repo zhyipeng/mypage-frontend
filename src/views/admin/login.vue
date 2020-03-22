@@ -2,7 +2,7 @@
     <div class="login_container">
         <div class="login_box">
             <div class="avatar_box">
-                <img src="../assets/logo.png" alt="">
+                <img src="../../assets/logo.png" alt="">
             </div>
 
             <el-form label-width="0px" class="login_form" :model="form" :rules="loginRules" ref="loginFormRef">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {api} from '../core/api.js'
+import {api} from '../../core/api.js'
 
 export default {
     name: 'Login',
