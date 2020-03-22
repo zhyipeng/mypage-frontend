@@ -13,6 +13,7 @@ import Posts from './views/posts.vue'
 import PostDetail from './views/detail.vue'
 import Todos from './views/todos.vue'
 import TodoLists from './views/todoList.vue'
+import Archieve from './views/archieve.vue'
 
 
 Vue.use(Router)
@@ -39,6 +40,7 @@ const router = new Router({
             component: Index,
             children: [
                 { path: '/', component: Posts },
+                { path: '/archieve', component: Archieve },
                 { path: '/:id', component: PostDetail },
             ]
         },

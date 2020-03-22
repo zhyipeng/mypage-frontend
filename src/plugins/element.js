@@ -30,7 +30,10 @@ import {
     CheckboxGroup,
     Timeline,
     TimelineItem,
-    Progress
+    Progress,
+    Radio,
+    RadioGroup,
+    InfiniteScroll,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -63,6 +66,9 @@ Vue.use(CheckboxGroup)
 Vue.use(Timeline)
 Vue.use(TimelineItem)
 Vue.use(Progress)
+Vue.use(Radio)
+Vue.use(RadioGroup)
+Vue.use(InfiniteScroll)
 
 // 全局注册
 Vue.prototype.$message = Message

@@ -11,7 +11,7 @@
             <i class="el-icon-s-home"></i>
             <span slot="title">首页</span>
           </el-menu-item>
-          <el-menu-item index="/achieve">
+          <el-menu-item index="/archieve">
             <i class="el-icon-video-camera-solid"></i>
             <span slot="title">归档</span>
           </el-menu-item>
