@@ -20,6 +20,7 @@ import Posts from './views/index/posts.vue'
 import PostDetail from './views/index/detail.vue'
 import Archieve from './views/index/archieve.vue'
 import Tags from './views/index/tags.vue'
+import Categories from './views/index/categories.vue'
 
 
 Vue.use(Router)
@@ -48,6 +49,7 @@ const router = new Router({
                 { path: '/', component: Posts },
                 { path: '/archieve', component: Archieve },
                 { path: '/tags', component: Tags },
+                { path: '/categories', component: Categories },
                 { path: '/:id', component: PostDetail },
             ]
         },

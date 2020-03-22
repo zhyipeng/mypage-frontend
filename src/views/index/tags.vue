@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-card>
     <wordcloud
       :data="tags"
       nameKey="name"
@@ -8,7 +8,7 @@
       :wordPadding="7"
       :wordClick="jump_to_list"
     ></wordcloud>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -25,24 +25,27 @@ export default {
   methods: {
     async get_tags() {
       let ret = await api.get("/v1/post/tags");
-      this.tags = ret
+      this.tags = ret;
     },
     jump_to_list(name, value, item) {
-        let id = null
-        for (let i = 0; i < this.tags.length; i++) {
-            if (this.tags[i].name == name) {
-                id = this.tags[i].id
-                break
-            }
+      let id = null;
+      for (let i = 0; i < this.tags.length; i++) {
+        if (this.tags[i].name == name) {
+          id = this.tags[i].id;
+          break;
         }
-        this.$router.push({path:'/', query:{'tag_id': id}})
+      }
+      this.$router.push({ path: "/", query: { tag_id: id } });
     }
   },
   created() {
     this.get_tags();
   },
   components: {
-      wordcloud
+    wordcloud
   }
 };
 </script>
+
+<style lang="less" scoped>
+</style>

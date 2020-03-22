@@ -19,7 +19,7 @@
             <i class="el-icon-s-management"></i>
             <span slot="title">标签</span>
           </el-menu-item>
-          <el-menu-item index="/category">
+          <el-menu-item index="/categories">
             <i class="el-icon-s-order"></i>
             <span slot="title">分类</span>
           </el-menu-item>

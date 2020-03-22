@@ -93,7 +93,7 @@ export default {
       this.$router.push("/admin/posts/create");
     },
     viewPost(id) {
-      this.$router.push("/")
+      this.$router.push("/" + id)
     },
     deletePost(id) {
       console.log(id)
