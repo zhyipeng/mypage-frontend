@@ -21,9 +21,19 @@ import PostDetail from './views/index/detail.vue'
 import Archieve from './views/index/archieve.vue'
 import Tags from './views/index/tags.vue'
 import Categories from './views/index/categories.vue'
+import {api} from "./core/api";
 
 
 Vue.use(Router)
+
+var config = {title: "Yipeng's Blog"}
+
+// async function get_config() {
+//     config.title = 'zzzz'
+// }
+//
+// get_config()
+
 
 const router = new Router({
     routes: [{
@@ -50,18 +60,30 @@ const router = new Router({
                 { path: '/archieve', component: Archieve },
                 { path: '/tags', component: Tags },
                 { path: '/categories', component: Categories },
-                { path: '/:id', component: PostDetail },
             ]
         },
+        {
+            path: '/:id',
+            component: PostDetail
+        }
     ]
 })
 
 router.beforeEach((to, from, next) => {
+    document.title = config.title
     if (!to.path.startsWith('/admin')) return next();
     if (to.path === '/admin/login') return next();
     const token = window.localStorage.getItem('token')
     if (!token) return next('/admin/login')
     next()
 })
+
+router.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+    next();
+});
 
 export default router

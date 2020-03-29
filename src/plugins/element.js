@@ -34,6 +34,7 @@ import {
     Radio,
     RadioGroup,
     InfiniteScroll,
+    Tag,
 } from 'element-ui'
 
 
@@ -70,6 +71,7 @@ Vue.use(Progress)
 Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.use(InfiniteScroll)
+Vue.use(Tag)
 
 // 全局注册
 Vue.prototype.$message = Message

@@ -5,12 +5,12 @@
     </div>
     <div class="info">
       <i class="el-icon-edit"></i>
-      <span>发表于{{post.created_at}}</span>
+      <span>发表于 {{post.created_at}}</span>
       <el-divider direction="vertical"></el-divider>
       <i class="el-icon-folder"></i>
       <span>
         分类于
-        <el-link>{{post.category.name}}</el-link>
+        <el-link @click="jumpToCategory(post.category.id)">{{post.category.name}}</el-link>
       </span>
     </div>
     <div class="brief">{{post.summary}}</div>
@@ -43,6 +43,9 @@ export default {
     },
     jumpToDetail(id){
       this.$router.push('/' + id)
+    },
+    jumpToCategory(id){
+      this.$emit("jump_to_category", id)
     }
   }
 };
