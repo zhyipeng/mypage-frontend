@@ -21,6 +21,7 @@ import PostDetail from './views/index/detail.vue'
 import Archieve from './views/index/archieve.vue'
 import Tags from './views/index/tags.vue'
 import Categories from './views/index/categories.vue'
+import codeSnippets from './views/index/codeSnippets.vue'
 
 
 Vue.use(Router)
@@ -57,10 +58,11 @@ const router = new Router({
             path: '/',
             component: Index,
             children: [
-                { path: '/', component: Posts },
-                { path: '/archieve', component: Archieve },
-                { path: '/tags', component: Tags },
-                { path: '/categories', component: Categories },
+                {path: '/', component: Posts},
+                {path: '/archieve', component: Archieve},
+                {path: '/tags', component: Tags},
+                {path: '/categories', component: Categories},
+                {path: '/code_snippets', component: codeSnippets},
             ]
         },
         {

@@ -23,6 +23,10 @@
             <i class="el-icon-s-order"></i>
             <span slot="title">分类</span>
           </el-menu-item>
+          <el-menu-item index="/code_snippets">
+            <i class="el-icon-tickets"></i>
+            <span slot="title">代码片段</span>
+          </el-menu-item>
           <el-menu-item index="/search">
             <i class="el-icon-search"></i>
             <span slot="title">搜索</span>

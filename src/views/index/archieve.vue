@@ -11,24 +11,23 @@
 </template>
 
 <script>
-import { api } from "../../core/api.js";
-import { timestampToTime } from "../../core/utils.js";
+  import {api} from "../../core/api.js";
+  import {timestampToTime} from "../../core/utils.js";
 
-export default {
-  name: "Archieve",
-  data() {
-    return {
-      reverse: false,
-      posts: [],
-      currentPage: 1,
-      size: 20,
-      total: 0,
-      end: false
-    };
+  export default {
+    name: "Archieve",
+    data() {
+      return {
+        reverse: false,
+        posts: [],
+        currentPage: 1,
+        size: 20,
+        total: 0,
+        end: false
+      };
   },
   methods: {
     async getPosts() {
-      console.log(this.posts);
       let ret = await api.get("/v1/post", {
         params: { page: this.currentPage, size: this.size }
       });
