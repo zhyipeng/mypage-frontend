@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { Message } from 'element-ui'
+import {Message} from 'element-ui'
 
-axios.defaults.baseURL = 'http://106.13.226.30'
-// axios.defaults.baseURL = 'http://127.0.0.1:8088'
+// axios.defaults.baseURL = 'http://106.13.226.30'
+axios.defaults.baseURL = 'http://127.0.0.1:8088'
 axios.interceptors.request.use(config => {
     let token = window.localStorage.getItem('token')
     if (!token) return config
@@ -16,7 +16,9 @@ const api = {
             let rsp = await method(url, data)
             let res = rsp.data
             return new Promise((resolve, reject) => {
-                if (rsp.status != 200) { reject(rsp.status) }
+                if (rsp.status != 200 && rsp.status != 204) {
+                    reject(rsp.status)
+                }
                 if (!res.error_code || res.error_code === 0) {
                     resolve(res)
                 } else {

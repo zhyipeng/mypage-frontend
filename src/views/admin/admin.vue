@@ -43,6 +43,10 @@
             <i class="el-icon-finished"></i>
             <span slot="title">待办事项</span>
           </el-menu-item>
+          <el-menu-item index="/admin/code_snippets">
+            <i class="el-icon-tickets"></i>
+            <span slot="title">代码片段</span>
+          </el-menu-item>
           <el-menu-item index="/admin/settings">
             <i class="el-icon-s-operation"></i>
             <span slot="title">系统设置</span>

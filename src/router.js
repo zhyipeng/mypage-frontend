@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 // admin
 import Login from './views/admin/login.vue'
 import Admin from './views/admin/admin.vue'
@@ -13,7 +12,8 @@ import CreatePost from './views/admin/create.vue'
 import UpdatePost from './views/admin/update.vue'
 import TagList from './views/admin/tagList.vue'
 import CategoryList from './views/admin/categoryList.vue'
-
+import CodeSnippetList from './views/admin/codeSnippetList.vue'
+import CodeSnippetForm from './views/admin/createCodeSnippet.vue'
 // index
 import Index from './views/index/index.vue'
 import Posts from './views/index/posts.vue'
@@ -21,7 +21,6 @@ import PostDetail from './views/index/detail.vue'
 import Archieve from './views/index/archieve.vue'
 import Tags from './views/index/tags.vue'
 import Categories from './views/index/categories.vue'
-import {api} from "./core/api";
 
 
 Vue.use(Router)
@@ -41,14 +40,16 @@ const router = new Router({
             component: Admin,
             redirect: '/admin/overview',
             children: [
-                { path: '/admin/overview', component: Overview },
-                { path: '/admin/posts', component: PostList },
-                { path: '/admin/posts/create', component: CreatePost },
-                { path: '/admin/posts/update/:id', component: UpdatePost },
-                { path: '/admin/tags', component: TagList },
-                { path: '/admin/categories', component: CategoryList },
-                { path: '/admin/todolists/:id', component: Todos },
-                { path: '/admin/todolists', component: TodoLists },
+                {path: '/admin/overview', component: Overview},
+                {path: '/admin/posts', component: PostList},
+                {path: '/admin/posts/create', component: CreatePost},
+                {path: '/admin/posts/update/:id', component: UpdatePost},
+                {path: '/admin/tags', component: TagList},
+                {path: '/admin/categories', component: CategoryList},
+                {path: '/admin/todolists/:id', component: Todos},
+                {path: '/admin/todolists', component: TodoLists},
+                {path: '/admin/code_snippets', component: CodeSnippetList},
+                {path: '/admin/code_snippets/create', component: CodeSnippetForm},
             ]
         },
         { path: '/admin/login', component: Login },
