@@ -1,40 +1,41 @@
 import Vue from 'vue'
 import {
+    Aside,
+    Breadcrumb,
+    BreadcrumbItem,
     Button,
+    ButtonGroup,
+    Card,
+    Checkbox,
+    CheckboxGroup,
+    Col,
+    Container,
+    Divider,
     Form,
     FormItem,
-    Input,
-    Message,
-    Container,
     Header,
-    Aside,
+    InfiniteScroll,
+    Input,
+    Link,
     Main,
     Menu,
     MenuItem,
-    Breadcrumb,
-    BreadcrumbItem,
-    Card,
-    Row,
-    Col,
-    Table,
-    TableColumn,
-    Pagination,
-    Select,
+    Message,
     Option,
-    Transfer,
-    Divider,
-    Link,
-    Switch,
-    ButtonGroup,
-    Checkbox,
-    CheckboxGroup,
-    Timeline,
-    TimelineItem,
+    Pagination,
     Progress,
     Radio,
+    RadioButton,
     RadioGroup,
-    InfiniteScroll,
+    Row,
+    Select,
+    Switch,
+    Table,
+    TableColumn,
     Tag,
+    Timeline,
+    TimelineItem,
+    Transfer,
 } from 'element-ui'
 
 
@@ -72,6 +73,7 @@ Vue.use(Radio)
 Vue.use(RadioGroup)
 Vue.use(InfiniteScroll)
 Vue.use(Tag)
+Vue.use(RadioButton)
 
 // 全局注册
 Vue.prototype.$message = Message

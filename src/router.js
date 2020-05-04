@@ -14,6 +14,7 @@ import TagList from './views/admin/tagList.vue'
 import CategoryList from './views/admin/categoryList.vue'
 import CodeSnippetList from './views/admin/codeSnippetList.vue'
 import CodeSnippetForm from './views/admin/createCodeSnippet.vue'
+import ToolsBox from './views/admin/toolsbox'
 // index
 import Index from './views/index/index.vue'
 import Posts from './views/index/posts.vue'
@@ -22,6 +23,8 @@ import Archieve from './views/index/archieve.vue'
 import Tags from './views/index/tags.vue'
 import Categories from './views/index/categories.vue'
 import codeSnippets from './views/index/codeSnippets.vue'
+// toolsbox
+import CURL from './views/toolsbox/curl'
 
 
 Vue.use(Router)
@@ -51,6 +54,7 @@ const router = new Router({
                 {path: '/admin/todolists', component: TodoLists},
                 {path: '/admin/code_snippets', component: CodeSnippetList},
                 {path: '/admin/code_snippets/create', component: CodeSnippetForm},
+                {path: '/admin/toolsbox', component: ToolsBox},
             ]
         },
         { path: '/admin/login', component: Login },
@@ -68,6 +72,10 @@ const router = new Router({
         {
             path: '/:id',
             component: PostDetail
+        },
+        {
+            path: '/toolsbox/curl',
+            component: CURL,
         }
     ]
 })

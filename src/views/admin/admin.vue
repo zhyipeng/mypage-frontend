@@ -51,6 +51,10 @@
             <i class="el-icon-s-operation"></i>
             <span slot="title">系统设置</span>
           </el-menu-item>
+          <el-menu-item index="/admin/toolsbox">
+            <i class="el-icon-fork-spoon"></i>
+            <span slot="title">工具箱</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
 

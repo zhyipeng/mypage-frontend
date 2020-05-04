@@ -37,11 +37,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc861e70-c2cf-4cb8-903d-8255c9bdd147" name="Default Changelist" comment="code snippet admin">
-      <change afterPath="$PROJECT_DIR$/src/views/index/codeSnippets.vue" afterDir="false" />
+    <list default="true" id="dc861e70-c2cf-4cb8-903d-8255c9bdd147" name="Default Changelist" comment="code snippet">
+      <change afterPath="$PROJECT_DIR$/src/views/admin/toolsbox.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/toolsbox/curl.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/aside/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/aside/menu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugins/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugins/element.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/admin.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +96,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -150,6 +155,7 @@
       <workItem from="1586695577829" duration="59000" />
       <workItem from="1586695656394" duration="48000" />
       <workItem from="1586695712028" duration="6971000" />
+      <workItem from="1588475006972" duration="9013000" />
     </task>
     <task id="LOCAL-00001" summary="fix api">
       <created>1585487756105</created>
@@ -181,6 +187,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -215,22 +222,22 @@
       <screen x="-1920" y="-66" width="1920" height="1057" />
     </state>
     <state x="-1820" y="11" width="1720" height="880" key="DiffContextDialog/0.23.1440.877/-1920.-66.1920.1057@-1920.-66.1920.1057" timestamp="1586699365947" />
-    <state width="1899" height="300" key="GridCell.Tab.0.bottom" timestamp="1586696534137">
+    <state width="1920" height="306" key="GridCell.Tab.0.bottom" timestamp="1586704290563">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586696534137" />
-    <state width="1899" height="300" key="GridCell.Tab.0.center" timestamp="1586696534134">
+    <state width="1920" height="306" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586704290563" />
+    <state width="1920" height="306" key="GridCell.Tab.0.center" timestamp="1586704290561">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.center/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586696534134" />
-    <state width="1899" height="300" key="GridCell.Tab.0.left" timestamp="1586696534132">
+    <state width="1920" height="306" key="GridCell.Tab.0.center/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586704290561" />
+    <state width="1920" height="306" key="GridCell.Tab.0.left" timestamp="1586704290560">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.left/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586696534132" />
-    <state width="1899" height="300" key="GridCell.Tab.0.right" timestamp="1586696534136">
+    <state width="1920" height="306" key="GridCell.Tab.0.left/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586704290560" />
+    <state width="1920" height="306" key="GridCell.Tab.0.right" timestamp="1586704290562">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state width="1899" height="300" key="GridCell.Tab.0.right/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586696534136" />
+    <state width="1920" height="306" key="GridCell.Tab.0.right/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586704290562" />
     <state x="-1680" y="73" key="SettingsEditor" timestamp="1586695680197">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
@@ -243,17 +250,17 @@
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
     <state x="-1290" y="62" width="659" height="777" key="find.popup/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586698526171" />
-    <state x="-1268" y="231" key="git4idea.merge.GitPullDialog" timestamp="1586697843210">
+    <state x="-1268" y="231" key="git4idea.merge.GitPullDialog" timestamp="1588476058616">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state x="-1268" y="231" key="git4idea.merge.GitPullDialog/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586697843210" />
-    <state x="-1295" y="211" width="670" height="675" key="run.anything.popup" timestamp="1586695805776">
+    <state x="-1268" y="231" key="git4idea.merge.GitPullDialog/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1588476058616" />
+    <state x="-1295" y="211" width="670" height="675" key="run.anything.popup" timestamp="1588475505817">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state x="-1295" y="211" width="670" height="675" key="run.anything.popup/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586695805776" />
-    <state x="-1295" y="152" width="670" height="676" key="search.everywhere.popup" timestamp="1586702971672">
+    <state x="-1295" y="211" width="670" height="675" key="run.anything.popup/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1588475505817" />
+    <state x="-1295" y="152" width="670" height="676" key="search.everywhere.popup" timestamp="1588495701629">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state x="-1295" y="152" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586702971672" />
+    <state x="-1295" y="152" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1588495701629" />
   </component>
 </project>
