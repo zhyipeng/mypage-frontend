@@ -2,7 +2,7 @@
     <el-card>
         <el-row :gutter="20">
             <el-col :span="6">
-                <el-button plain>CURL 解析</el-button>
+                <el-button @click="goCurl" plain>CURL 解析</el-button>
             </el-col>
         </el-row>
     </el-card>
@@ -10,7 +10,12 @@
 
 <script>
     export default {
-        name: "ToolsBox"
+        name: "ToolsBox",
+        methods: {
+            goCurl(){
+                this.$router.push('/toolsbox/curl')
+            }
+        }
     }
 </script>
 

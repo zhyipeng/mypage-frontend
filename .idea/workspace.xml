@@ -37,15 +37,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc861e70-c2cf-4cb8-903d-8255c9bdd147" name="Default Changelist" comment="code snippet">
-      <change afterPath="$PROJECT_DIR$/src/views/admin/toolsbox.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/toolsbox/curl.vue" afterDir="false" />
+    <list default="true" id="dc861e70-c2cf-4cb8-903d-8255c9bdd147" name="Default Changelist" comment="curl paser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugins/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugins/element.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/toolsbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/toolsbox.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +149,7 @@
       <workItem from="1586695577829" duration="59000" />
       <workItem from="1586695656394" duration="48000" />
       <workItem from="1586695712028" duration="6971000" />
-      <workItem from="1588475006972" duration="9013000" />
+      <workItem from="1588475006972" duration="11726000" />
     </task>
     <task id="LOCAL-00001" summary="fix api">
       <created>1585487756105</created>
@@ -171,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586699341697</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="curl paser">
+      <created>1588571788467</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588571788467</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +194,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="fix api" />
     <MESSAGE value="code snippet admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="code snippet admin" />
+    <MESSAGE value="curl paser" />
+    <option name="LAST_COMMIT_MESSAGE" value="curl paser" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -242,10 +244,10 @@
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
     <state x="-1680" y="73" key="SettingsEditor/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1586695680197" />
-    <state x="-1360" y="187" key="Vcs.Push.Dialog.v2" timestamp="1585487758276">
+    <state x="-1360" y="187" key="Vcs.Push.Dialog.v2" timestamp="1588571792599">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
-    <state x="-1360" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1585487758276" />
+    <state x="-1360" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900/-1920.-89.1920.1080@-1920.-89.1920.1080" timestamp="1588571792599" />
     <state x="-1290" y="62" width="659" height="777" key="find.popup" timestamp="1586698526171">
       <screen x="-1920" y="-89" width="1920" height="1080" />
     </state>
